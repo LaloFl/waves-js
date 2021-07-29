@@ -5,23 +5,32 @@ let c = canvas.getContext('2d');
 
 let x, y;
 let amp = 20;
-let freq = 0.005;
+let wLength = 0.005;
 let transfer = 0;
 let transferFreq = 0.08;
+
+//ranges
+const rangeAmp = document.getElementById("rangeAmp");
+rangeAmp.min = 0;
+rangeAmp.max = 150;
+rangeAmp.defaultValue = amp;
+
+const rangeLength = document.getElementById("rangeLength");
+rangeLength.min = 0;
+rangeLength.max = 50;
+rangeLength.step = 0.1;
+rangeLength.defaultValue = wLength * 100;
+
+const rangeFreq = document.getElementById("rangeFreq");
+rangeFreq.min = 0;
+rangeFreq.max = 400;
+rangeLength.step = 0.1;
+rangeFreq.defaultValue = transferFreq * 100;
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 })
-
-canvas.addEventListener('mousemove', (e) => {
-    x = e.x;
-    y = e.y;
-})
-
-function boost() {
-    amp += 5;
-}
 
 function drawLine(x, y, endX, endY) {
     c.beginPath();
@@ -46,14 +55,23 @@ function draw() {
     for(let i = 0; i < canvas.width; i++) {
         c.strokeStyle = 'rgba(130, 200, 255)';
         
-        c.lineTo(i, (canvas.height / 2) + Math.sin(-i*freq + transfer) * amp);
+        c.lineTo(
+            i, 
+            (canvas.height / 2) + 
+            Math.sin(-i*(parseFloat(rangeLength.value)/100) + transfer) * 
+            parseInt(rangeAmp.value) * i/100);
         c.stroke();
-        c.shadowBlur = 0;
-        drawLine(i, (canvas.height / 2) + Math.sin(-i*freq + transfer) * amp, i, canvas.height)
+        drawLine(
+            i, 
+            (canvas.height / 2) + 
+            Math.sin(-i*(parseFloat(rangeLength.value)/100) + transfer) * 
+            parseInt(rangeAmp.value) * i/100, 
+            i, 
+            canvas.height)
     }
     c.closePath();
 
-    transfer -= transferFreq;
+    transfer -= parseFloat(rangeFreq.value) / 100;
 
     window.requestAnimationFrame(draw);
 }

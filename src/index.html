@@ -11,10 +11,14 @@
 </head>
 <body>
     <div class="content">
-        <button type="button" 
-        class="btn bg-warning shadow-3 font-weight-bold m-3"
-        onclick="boost()">
-        WARNING</button>
+        <div class="d-flex flex-column justify-content-center w-25 text-light text-center">
+            Wave Amplitude
+            <input type="range" name="Wave Amplitude" id="rangeAmp" />
+            Wave Length
+            <input type="range" name="Wave Length" id="rangeLength" />
+            Wave Frequency
+            <input type="range" name="Wave Frequency" id="rangeFreq" />
+        </div>
     </div>
     <canvas id='canvas'></canvas>
     
