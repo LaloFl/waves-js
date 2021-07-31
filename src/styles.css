@@ -1,11 +1,20 @@
-canvas {
+#canvas {
     position: fixed;    
     top: 0;
     left: 0;
 }
+#show {
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+body {
+    min-width: none;
+}
 .content {
     position: relative;
     z-index: 1;
-    width: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100%;
+    font-size: 12px;
 }

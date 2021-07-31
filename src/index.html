@@ -11,19 +11,40 @@
 </head>
 <body>
     <div class="content">
-        <div class="d-flex flex-column m-2 justify-content-center w-25 text-light text-center">
-            Wave Amplitude
-            <input type="range" name="Wave Amplitude" id="rangeAmp" />
-            Wave Length
-            <input type="range" name="Wave Length" id="rangeLength" />
-            Wave Frequency
-            <input type="range" name="Wave Frequency" id="rangeFreq" />
-            <div class="align-middle">
-                Wave Increase <input type="checkbox" name="Wave Increase Check" id="checkIncrease">
+        <section class="m2 bg-dark text-light" id="controls">
+            <div class="d-flex flex-column m-2 w-75 text-center">
+                Wave Amplitude
+                <input type="range" name="Wave Amplitude" id="rangeAmp" />
+                Wave Length
+                <input type="range" name="Wave Length" id="rangeLength" />
+                Wave Frequency
+                <input type="range" name="Wave Frequency" id="rangeFreq" />
+                <div class="align-middle">
+                    Wave Increase <input type="checkbox" name="Wave Increase Check" id="checkIncrease">
+                </div>
+                <input type="range" name="Wave Increase" id="rangeIncrease" />
+                <div class="align-middle">
+                    Wave Noise <input type="checkbox" name="Wave Noise Check" id="checkNoise">
+                </div>
+                <input type="range" name="Wave Noise" id="rangeNoise" />
             </div>
-            <input type="range" name="Wave Increase" id="rangeIncrease" />
+    
+            <div class="d-flex flex-column m-2 w-25 text-center">
+                Color 1
+                <div class="">
+                    <input type="color" name="Color Picker 1" id="colorPicker1">
+                </div><br/>
+                Color 2
+                <div class="">
+                    <input type="color" name="Color Picker 2" id="colorPicker2">
+                </div>
+            </div>
+        </section>
+        <div class="text-light" id="show">
+            Show <input type="checkbox" name="Show Controls Check" id="checkShowControls">
         </div>
     </div>
+    
     <canvas id='canvas'></canvas>
     
     <script src="./canvas.js"></script>
