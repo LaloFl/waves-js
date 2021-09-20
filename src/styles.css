@@ -18,3 +18,35 @@ body {
     width: 100%;
     font-size: 12px;
 }
+
+#controls {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #303030;
+}
+.text-light {
+    color: white;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 75%;
+    text-align: center;
+}
+.color-controls {
+    /*d-flex flex-column m-2 w-25 text-center*/
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 25%;
+    text-align: center;
+    justify-content: center;
+}
+
+#colorPicker1, #colorPicker2 {
+    background-color: #303030;
+    border: none;
+}
